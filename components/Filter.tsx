@@ -1,0 +1,31 @@
+import { useStateFilter } from '@/store/useTodo';
+import { Button, Stack } from '@chakra-ui/react';
+
+const Filter = () => {
+    const {filter, setFilter} = useStateFilter();
+  
+  return (
+    <Stack spacing={2} direction="row" mt="8">
+      <Button 
+        isDisabled={filter === 'all'}
+        onClick={() => setFilter('all')} 
+      >
+        All
+      </Button>
+      <Button
+        isDisabled={filter === 'uncompleted'}
+        onClick={() => setFilter('uncompleted')} 
+      >
+        Not completed
+      </Button>
+      <Button
+        isDisabled={filter === 'completed'}
+        onClick={() => setFilter('completed')} 
+      >
+        Completed
+      </Button>
+    </Stack>
+  );
+};
+
+export { Filter };
